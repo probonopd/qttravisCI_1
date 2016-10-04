@@ -14,5 +14,5 @@ install:
 
 script:
  - echo "inside script"
- - if [[ "`uname`" == "Darwin" ]]; then ci/ci-install-osx.sh; fi
- - if [[ "`uname`" == "Linux" ]]; then ci/ci-install-linux.sh; fi
+ - if [[ "`uname`" == "Darwin" ]]; then ci/ci-build-osx.sh; fi
+ - if [[ "`uname`" == "Linux" ]]; then ci/ci-build-linux.sh; fi
