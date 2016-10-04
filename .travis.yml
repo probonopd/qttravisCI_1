@@ -1,0 +1,19 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
+
+before_install:
+ - uname -a
+ - if [[ "`uname`" == "Darwin" ]]; then ci/ci-install-osx.sh; fi
+ - if [[ "`uname`" == "Linux" ]]; then ci/ci-install-linux.sh; fi
+
+script:
+ - echo "inside script"
+ - qmake -project
+ - qmake CmWidget1.pro
+ - make
