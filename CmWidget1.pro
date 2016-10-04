@@ -22,4 +22,6 @@ FORMS    += mainwindow.ui
 DISTFILES += \
     .travis.yml \
     ci/ci-install-linux.sh \
-    ci/ci-install-osx.sh
+    ci/ci-install-osx.sh \
+    ci/ci-build-linux.sh \
+    ci/ci-build-osx.sh
