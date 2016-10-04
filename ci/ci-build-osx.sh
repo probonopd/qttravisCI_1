@@ -17,4 +17,4 @@ pwd
 ls -la
 DEPLOY=`find /usr/local -name "macdeployqt" | head -n 1`
 $DEPLOY CmWidget1.app -dmg -verbose=3
-du -s -h qttravis1wQt551.dmg
+du -s -h CmWidget1.dmg
