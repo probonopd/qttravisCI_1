@@ -16,7 +16,7 @@ script:
 
 - echo "prepare for deploy"
 - if [[ "`uname`" == "Darwin" ]]; then DEPLOYFILENAME="CmWidget1.dmg"; fi
-- if [[ "`uname`" == "Linux" ]]; then DEPLOYFILENAME=CmWidget1; fi
+- if [[ "`uname`" == "Linux" ]]; then DEPLOYFILENAME=CmWidget1.AppImage; fi
 - echo $DEPLOYFILENAME
 - if [[ "`uname`" == "Darwin" ]]; then pushd "$TRAVIS_BUILD_DIR-build"; fi
 - pwd
