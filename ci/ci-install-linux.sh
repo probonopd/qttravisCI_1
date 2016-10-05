@@ -2,7 +2,7 @@
 
 set -x
 echo "Inside install-linux.sh"
-sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+# use ppa from beineri, see https://github.com/probonopd/linuxdeployqt/blob/master/.travis.yml
+sudo add-apt-repository --yes ppa:beineri/opt-qt57-trusty
 sudo apt-get update -qq
-sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
-sudo apt-get install qt5-default qttools5-dev-tools
+sudo apt-get -y install qt57base binutils
