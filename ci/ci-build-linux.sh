@@ -6,12 +6,12 @@ echo "Inside build-linux.sh"
 qmake -project
 qmake CmWidget1.pro
 make
-strip CmWidget1
-ldd CmWidget1
 
-# Now try to build an AppImage
+# Binary must be inside a directory to be bundled
 mkdir CmWidget
 cp CmWidget1 CmWidget/
+
+# Get linuxdeployqt tool
 wget https://github.com/probonopd/linuxdeployqt/releases/download/1/linuxdeployqt-1-x86_64.AppImage -O linuxdeployqt
 chmod +x linuxdeployqt
 
@@ -19,7 +19,7 @@ chmod +x linuxdeployqt
 sudo ln -s /usr/lib/x86_64-linux-gnu/qt5/plugins /usr/lib/plugins
 
 # Have linuxdeployqt create the AppImage
-./linuxdeployqt CmWidget/CmWidget1 -appimage -bundle-non-qt-libs -verbose=3
+./linuxdeployqt CmWidget/CmWidget1 -appimage -bundle-non-qt-libs -verbose=2
 
-find CmWidget/
-ls
+# Upload (replace this with your deployment mechanism)
+curl --upload-file ./CmWidget.AppImage https://transfer.sh/CmWidget.AppImage
