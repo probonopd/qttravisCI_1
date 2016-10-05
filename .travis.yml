@@ -18,6 +18,9 @@ script:
 - if [[ "`uname`" == "Darwin" ]]; then DEPLOYFILENAME="CmWidget1/CmWidget1.dmg"; fi
 - if [[ "`uname`" == "Linux" ]]; then DEPLOYFILENAME=CmWidget1; fi
 - echo $DEPLOYFILENAME
+- pushd "$TRAVIS_BUILD_DIR-build"
+- pwd
+- ls -la
 
 deploy:
   provider: releases
