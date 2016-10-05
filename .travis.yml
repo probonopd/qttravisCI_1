@@ -1,18 +1,29 @@
 language: cpp
-
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      sudo: required
-    - os: osx
-
+  - os: linux
+    dist: trusty
+    sudo: required
+  - os: osx
 install:
- - uname -a
- - if [[ "`uname`" == "Darwin" ]]; then ci/ci-install-osx.sh; fi
- - if [[ "`uname`" == "Linux" ]]; then ci/ci-install-linux.sh; fi
-
+- uname -a
+- if [[ "`uname`" == "Darwin" ]]; then ci/ci-install-osx.sh; fi
+- if [[ "`uname`" == "Linux" ]]; then ci/ci-install-linux.sh; fi
 script:
- - echo "inside script"
- - if [[ "`uname`" == "Darwin" ]]; then ci/ci-build-osx.sh; fi
- - if [[ "`uname`" == "Linux" ]]; then ci/ci-build-linux.sh; fi
+- echo "inside script"
+- if [[ "`uname`" == "Darwin" ]]; then ci/ci-build-osx.sh; fi
+- if [[ "`uname`" == "Linux" ]]; then ci/ci-build-linux.sh; fi
+
+- echo "prepare for deploy"
+- if [[ "`uname`" == "Darwin" ]]; then DEPLOYFILENAME=CmWidget1.dmg; fi
+- if [[ "`uname`" == "Linux" ]]; then DEPLOYFILENAME=CmWidget1; fi
+- echo $DEPLOYFILENAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: NW9Zje6J1/JNco+R52vVtlHKOBSLLxD1NH/TSy0bulasqf8ylV0UFcVyID7NprSpqtpqJBfl01WkhcRCvO7lcdpkLBW/RcbHUIB7AYnZLPmkMPeYJsER0X2TQLqNVgoWCqKSOiWNJFgg0csoJGlhPFb3PyBVjJBhc7saTd0jkiZwoPZ1DMUn2O3wSIbNi4gx+IMQnuNxDPi7OaJRwwUraWtnG3XJyETjRdxrm7UBYIYsuCteRzzfT/JuFHFkLq6uCM4niCshADiiXABd5giNGImmnR4oc7U3wI+f6tHF1TbrWj+eCtfdQUKhFfopLFW9Gs255sZeEQtxklmHBOtIlG4QRcyc3U6JGr5E4k44SqAfRSjhsuP5hBLfXFzOApudCRkgSniBuweddeaz2yDTTbOE72X7v1WXKZMaVIEvoBhi6w2Yg/L5QBwnCKP/ZvAue/YHxXdrGbT6BiCpC+e/WOdxtwaPgyFqDrVDX0o4hzrUfIm0RmeQpgGxeu5gVJym5EpGa859QXtu9Af7D/sjB4dtmBFruPR1xgz0Liwq1RabvQE1MLFJHEvqOYZx1xl+AZRdYGcpOL3+5rym4SxfPm2y/fJsE2TiqLACEz8dsCC0COssej4+z9pzKr+rgRgA/ndcutvXqwlRxqYPYvtCv6cPv6hqXVRrEfjygBA3Llo=
+  file: $DEPLOYFILENAME
+  on:
+    repo: chkmue/qttravisCI_1
+    tags: true
