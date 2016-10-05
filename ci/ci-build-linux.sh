@@ -17,4 +17,5 @@ export LD_LIBRARY_PATH=/usr/local/lib
 ./linuxdeployqt.AppImage CmWidget1 -appimage
 
 ls -la
+mv ..AppImage CmWidget1.AppImage
 du -sch CmWidget1.AppImage
