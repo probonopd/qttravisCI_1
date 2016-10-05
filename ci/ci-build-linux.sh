@@ -14,7 +14,7 @@ ls -la
 chmod +x linuxdeployqt.AppImage
 
 export LD_LIBRARY_PATH=/usr/local/lib
-./linuxdeployqt CmWidget1 -appimage
+./linuxdeployqt.AppImage CmWidget1 -appimage
 
 ls -la
 du -sch CmWidget1.AppImage
