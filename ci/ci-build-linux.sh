@@ -13,7 +13,7 @@ wget https://github.com/probonopd/linuxdeployqt/releases/download/1/linuxdeployq
 ls -la
 chmod +x linuxdeployqt.AppImage
 
-export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 ./linuxdeployqt.AppImage CmWidget1 -appimage
 
 ls -la
