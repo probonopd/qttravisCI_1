@@ -2,9 +2,9 @@
 
 set -x
 echo "Inside build-linux.sh"
-
-qmake -project
-qmake CmWidget1.pro
+source /opt/qt57/bin/qt57-env.sh
+/opt/qt57/bin/qmake -project
+/opt/qt57/bin/qmake CmWidget1.pro
 make
 
 # Binary must be inside a directory to be bundled
